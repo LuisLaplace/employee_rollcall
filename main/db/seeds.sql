@@ -1,21 +1,28 @@
--- Insert some departments
-INSERT INTO department (name) VALUES ('HR'), ('Engineering'), ('Marketing');
+-- Clear existing data
+DELETE FROM employee;
+DELETE FROM role;
+DELETE FROM department;
 
--- Insert some roles
+-- Insert departments
+INSERT INTO department (name) VALUES
+  ('Engineering'),
+  ('Sales'),
+  ('Marketing');
+
+-- Insert roles
 INSERT INTO role (title, salary, department_id) VALUES
-('Manager', 80000, 1),
-('Engineer', 70000, 2),
-('Marketing Specialist', 60000, 3);
+  ('Engineer', 80000, 1),              -- Department: Engineering
+  ('Salesperson', 60000, 2),           -- Department: Sales
+  ('Marketing Manager', 90000, 3);     -- Department: Marketing
 
--- Insert employees with random values for first_name, last_name, role_id, and manager_id
+-- Insert employees
 INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
-('John', 'Doe', 1, NULL),
-('Jane', 'Smith', 2, 1),
-('Robert', 'Brown', 3, 1),
-('Emily', 'Davis', 2, 1),
-('Michael', 'Wilson', 2, 1),
-('Sarah', 'Johnson', 3, 1),
-('David', 'Martinez', 1, NULL),
-('Laura', 'Garcia', 2, 7),
-('James', 'Rodriguez', 3, 7),
-('Linda', 'Martinez', 2, 7);
+  ('John', 'Doe', 1, NULL),
+  ('Jane', 'Smith', 2, 1),
+  ('Michael', 'Johnson', 3, 1);
+
+-- Display data
+SELECT * FROM department;
+SELECT * FROM role;
+SELECT * FROM employee;
+
